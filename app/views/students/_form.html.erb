@@ -1,0 +1,66 @@
+<%= form_for(@student) do |f| %>
+  <% if @student.errors.any? %>
+    <div style="border:1px solid black;border-color:#CC0000; font-size:14px;text-align:left;">      
+      <% @student.errors.full_messages.each do |msg| %>
+        
+        <%= msg %>,
+
+      <% end %>
+    </div>
+  <% end %>
+<table>
+  <div class="field">
+    <tr><td>
+      <%= f.label :firstname %></td><td>
+      <%= f.text_field :firstname %>
+    </td></tr>
+  </div>
+  <div class="field">
+    <tr><td>
+      <%= f.label :lastname %></td><td>
+      <%= f.text_field :lastname %>
+    </td></tr>
+  </div>
+  <div class="field">
+    <tr><td>
+      <%= f.label :student_number %></td><td>
+    <%= f.text_field :student_number %>
+    </td></tr>
+  </div>
+  <div class="field">
+    <tr><td>
+      <%= f.label :parent_name %></td><td>
+    <%= f.text_field :parent_name %>
+    </td></tr>
+  </div>
+  <div class="field">
+    <tr><td>
+      <%= f.label :phone_number %></td><td>
+      <%= f.text_field :phone_number %>
+    </td></tr>
+  </div>
+  <div class="field">
+    <tr><td>
+      <%= f.label :home_address %></td><td>
+    <%= f.text_field :address %>
+    </td></tr>
+  </div>
+  <div class="field">
+    <tr><td>
+      <%= f.label :student_school %></td><td>
+    <%= f.text_field :student_school %>
+    </td></tr>
+  </div>
+  <div class="field">
+    <tr><td>
+      <%= f.label :student_class %></td><td>
+    <%= f.text_field :student_class %>
+    </td></tr>
+  </div>
+  <div class="actions">
+    <tr><td>
+      <%= submit_tag "Create", :class=>"btn btn-medium btn-success" %>
+    </td></tr>
+  </div>
+<% end %>
+</table>

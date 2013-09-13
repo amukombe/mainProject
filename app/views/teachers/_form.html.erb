@@ -1,0 +1,68 @@
+<%= form_for(@teacher) do |f| %>
+  <% if @teacher.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
+
+      <ul>
+      <% @teacher.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <table>
+  <div class="field">
+    <tr><td>
+      <%= f.label :firstname %></td><td>
+      <%= f.text_field :firstname %>
+    </td></tr>
+  </div>
+  <div class="field">
+    <tr><td>
+      <%= f.label :lastname %></td><td>
+      <%= f.text_field :lastname %>
+    </td></tr>
+  </div>
+  <div class="field">
+    <tr><td>
+      <%= f.label :email %></td><td>
+      <%= f.text_field :email %>
+    </td></tr>
+  </div>
+  <div class="field">
+    <tr><td>
+      <%= f.label :phone_number %></td><td>
+      <%= f.text_field :phone_number %>
+    </td></tr>
+  </div>
+  <div class="field">
+    <tr><td>
+      <%= f.label :phone_number %></td><td>
+    <%= f.text_field :phone_number %>
+    </td></tr>
+  </div>
+  <div class="field">
+    <tr><td>
+      <%= f.label :address %></td><td>
+      <%= f.text_field :address %>
+    </td></tr>
+  </div>
+  <div class="field">
+    <tr><td>
+      <%= f.label :school %></td><td>
+    <%= f.text_field :school %>
+    </td></tr>
+  </div>
+  <div class="field">
+    <tr><td>
+      <%= f.label :subject %></td><td>
+    <%= f.text_field :subject %>
+    </td></tr>
+  </div>
+  <div class="actions">
+    <tr><td>
+      <%= submit_tag "Create", :class=>"btn btn-medium btn-success" %>
+    </td></tr>
+  </div>  
+<% end %>
+</table>

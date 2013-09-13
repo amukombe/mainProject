@@ -1,0 +1,28 @@
+<%= form_for(@subject) do |f| %>
+  <% if @subject.errors.any? %>
+    <div id="error_explanation" style="border:1px solid black;border-color:#CC0000; font-size:14px;text-align:left;">
+      <% @subject.errors.full_messages.each do |msg| %>
+        <%= msg %>
+      <% end %>
+    </div>
+  <% end %>
+  <table>
+  <div class="field">
+    <tr><td>
+      <%= f.label :subjectname %>
+      <%= f.text_field :subjectname %>
+    </td></tr>
+  </div>
+  <div class="field">
+    <tr><td>
+      <%= f.label :subjectlevel %>
+      <%= f.text_field :subjectlevel %>
+    </td></tr>
+  </div>
+  <div class="actions">
+    <tr><td>
+      <%= submit_tag 'Create subject', :class=>"btn btn-medium btn-success"  %>
+    </td></tr>
+  </div>
+<% end %>
+</table>

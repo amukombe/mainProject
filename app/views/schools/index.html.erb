@@ -1,0 +1,24 @@
+<% @page_title = "Schools|List" %>
+<h3>Listing schools</h3>
+
+<table class="table table-striped" style="font-size:14px;">
+  <tr>
+    <th>SCHOOL NAME</th>
+    <th>ADDRESS</th>
+    <th>ACTION</th>
+  </tr>
+
+<% @schools.each do |school| %>
+  <tr>
+    <td><%= school.schoolname %></td>
+    <td><%= school.address %></td>
+    <td><%= link_to 'Show', school,  :class=>"btn-link"  %> |
+        <%= link_to 'Edit', edit_school_path(school),  :class=>"btn-link"  %> |
+        <%= link_to 'Destroy', school, confirm: 'Are you sure?', method: :delete,  :class=>"btn-link"  %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New School', new_school_path , :class=>"btn btn-medium btn-info"%>

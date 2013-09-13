@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+<table>
+	<tr><td>
+		<%= @role.title %>
+	</td></tr>
+	<tr><td>
+		<%= @role.description%>
+	</td></tr>
+</table>
+<%= link_to 'Edit', edit_role_path(@role)  , :class=>"btn-link" %> |
+<%= link_to 'Back', roles_path  , :class=>"btn-link" %>

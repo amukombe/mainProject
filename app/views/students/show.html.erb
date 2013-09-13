@@ -1,0 +1,45 @@
+<%@page_title='Student | show'%>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Firstname:</b>
+  <%= @student.firstname %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%= @student.lastname %>
+</p>
+<p>
+  <b>Student number:</b>
+  <%= @student.student_number %>
+</p>
+
+<p>
+  <b>Parent name:</b>
+  <%= @student.parent_name %>
+</p>
+
+<p>
+  <b>Phone number:</b>
+  <%= @student.phone_number %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @student.address %>
+</p>
+
+<p>
+  <b>School:</b>
+  <%= @student.student_school %>
+</p>
+
+<p>
+  <b>Class:</b>
+  <%= @student.student_class %>
+</p>
+
+
+<%= link_to 'Edit', edit_student_path(@student) , :class=>"btn-link"%> |
+<%= link_to 'Back', students_path , :class=>"btn-link"%>

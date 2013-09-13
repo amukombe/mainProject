@@ -1,0 +1,28 @@
+<%@page_title='Student | list'%>
+<h3>Listing students</h3>
+
+<table class="table table-striped" style="font-size:14px;">
+  <tr>
+    <th>FIRSTNAME</th>
+    <th>LASTNAME</th>
+    <th>STUDENT NO</th>
+    <th>ACTION</th>
+  </tr>
+
+<% @students.each do |student| %>
+  <tr>
+    <td><%= student.firstname %></td>
+    <td><%= student.lastname %></td>
+    <td><%= student.student_number %></td>
+    <td>
+        <%= link_to 'Show', student, :class=>"btn-link" %> |
+        <%= link_to 'Edit', edit_student_path(student) , :class=>"btn-link"%> |
+        <%= link_to 'Destroy', student, confirm: 'Are you sure?', method: :delete , :class=>"btn-link"%>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Student', new_student_path , :class=>"btn btn-medium btn-info"%>

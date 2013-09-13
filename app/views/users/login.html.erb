@@ -1,0 +1,21 @@
+<% @page_title='User|Login'%>
+<% if flash[:alert] %>
+	<%= flash[:alert] %>
+<% end %>
+
+<%= form_tag(:action=>'create') do %>
+	<fieldset>
+		<legend>User Login</legend>
+		<div>
+		<label for="username" >Username:</label>
+		<%= text_field_tag :username %>
+		</div>
+		<div>
+		<label for="password" >Password:</label>
+		<%= password_field_tag :password %>
+		</div>
+		<div>
+		<%= submit_tag "Login", :class=>"btn btn-medium btn-info" %>
+		</div>
+	</fieldset>
+<% end %>

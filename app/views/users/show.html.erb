@@ -1,0 +1,31 @@
+<% @page_title = "Users|show" %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Firstname:</b>
+  <%= @user.firstname %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%= @user.lastname %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+<p>
+  <b>Phone number:</b>
+  <%= @user.phone_number %>
+</p>
+
+<p>
+  <b>Username:</b>
+  <%= @user.username %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_user_path(@user) , :class=>"btn-link" %> |
+<%= link_to 'Back', users_path , :class=>"btn-link" %>

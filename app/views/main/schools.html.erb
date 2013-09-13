@@ -1,0 +1,20 @@
+<% @page_title = "schools" %>
+<h3>Listing schools</h3>
+
+<table class="table table-striped">
+  <tr>
+    <td>SCHOOL NAME</td>
+    <td>ADDRESS</td>
+    <td>ACTION</td>
+  </tr>
+
+<% @school.each do |school| %>
+  <tr>
+    <td><%= school.schoolname %></td>
+    <td><%= school.address %></td>
+    <td>
+    	<%= link_to 'view', school,  :class=>"btn-link"  %>
+    </td>
+  </tr>
+<% end %>
+</table>

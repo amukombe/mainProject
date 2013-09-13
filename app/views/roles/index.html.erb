@@ -1,0 +1,22 @@
+<h3>Listing roles</h3>
+
+<table class="table table-striped" style="font-size:14px;">
+  <tr>
+    <th>TITLE</th>
+    <th>ACTION</th>
+  </tr>
+
+<% @roles.each do |role| %>
+  <tr><td>
+        <%= role.title %>
+  </td>
+    <td><%= link_to 'Show', role , :class=>"btn-link"  %> |
+        <%= link_to 'Edit', edit_role_path(role) , :class=>"btn-link"  %> |
+        <%= link_to 'Destroy', role, confirm: 'Are you sure?', method: :delete  , :class=>"btn-link" %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Role', new_role_path, :class=>"btn btn-medium btn-info" %>

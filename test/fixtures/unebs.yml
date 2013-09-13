@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  academic_year: 2013-08-18
+  subject: MyString
+  academic_level: MyString
+  app_file_name: MyString
+  app_file_size: 1
+  app_content_type: MyString
+
+two:
+  academic_year: 2013-08-18
+  subject: MyString
+  academic_level: MyString
+  app_file_name: MyString
+  app_file_size: 1
+  app_content_type: MyString

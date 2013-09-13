@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Academic year:</b>
+  <%= @uneb.academic_year %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%= @uneb.subject %>
+</p>
+
+<p>
+  <b>Academic level:</b>
+  <%= @uneb.academic_level %>
+</p>
+
+<p>
+  <b>App file name:</b>
+  <%= @uneb.app_file_name %>
+</p>
+
+<p>
+  <b>App file size:</b>
+  <%= @uneb.app_file_size %>
+</p>
+
+<p>
+  <b>App content type:</b>
+  <%= @uneb.app_content_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_uneb_path(@uneb) %> |
+<%= link_to 'Back', unebs_path %>

@@ -1,0 +1,28 @@
+<% @page_title = "Users|List" %>
+<h3>Listing users</h3>
+
+<table class="table table-striped" style="font-size:14px;">
+  <tr>
+    <th>FIRSTNAME</th>
+    <th>LASTNAME</th>
+    <th>EMAIL</th>
+    <th>ACTION</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.firstname %></td>
+    <td><%= user.lastname %></td>
+    <td><%= user.email %></td>
+    <td>
+      <%= link_to 'Show', user, :class=>"btn-link" %> | 
+      <%= link_to 'Edit', edit_user_path(user) , :class=>"btn-link" %> | 
+      <%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete , :class=>"btn-link" %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User', new_user_path , :class=>"btn btn-medium btn-info"%>

@@ -1,0 +1,30 @@
+<%= form_for(@role) do |f| %>
+  <% if @role.errors.any? %>
+    <div  id="error_explanation" style="border:1px solid black;border-color:#CC0000; font-size:14px;text-align:left;">
+      
+      <% @role.errors.full_messages.each do |msg| %>
+        <%= msg %>
+      <% end %>
+    </div>
+  <% end %>
+  <table>
+  <div class="field">
+    <tr><td>
+      <%= f.label(:title) %>
+      <%= f.text_field(:title) %>
+    </td></tr>
+    </div>
+    <div class="field">
+      <tr><td>
+      <%= f.label(:description) %>
+      <%= f.text_area(:description, :rows => 6) %>
+      </td></tr>
+    </div>      
+    <div class="actions">
+    <tr><td>
+      <%= submit_tag "Create", :class=>"btn btn-medium btn-success" %>
+    </td></tr>
+  </div>
+ </table> 
+
+<% end %>

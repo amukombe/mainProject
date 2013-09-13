@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title><%= @page_title || 'Admin'%></title>
+        <%=stylesheet_link_tag('bootstrap-responsive', :media =>'all')%>
+        <%=stylesheet_link_tag('bootstrap-responsive.min', :media =>'all')%>
+        <%=stylesheet_link_tag('bootstrap', :media =>'all')%>
+        <%=stylesheet_link_tag('bootstrap.min', :media =>'all')%>
+        <%=javascript_include_tag('bootstrap')%>
+        <%=javascript_include_tag('bootstrap.min')%>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row-fluid" style="color:#fff;">
+                <header class="span6">Welcome to the Soma system</header>
+                <header class="span6" style="text-align:right;">
+                    <%if !session[:user_id].blank? %>
+                        Hello: <%= session[:firstname]%> <%= session[:lastname]%>
+                         <%= link_to 'Logout', {:controller=>'sessions', :action=>'logout'}, :class=>"btn btn-small btn-success" %>
+                    <%else%>
+                        <%= link_to("Login",{:controller=>'sessions',:action=>'login'}, :class=>"btn btn-small btn-success")%> | <%= link_to("Activate Account",{:controller=>'sessions',:action=>'register'}, :class=>"btn btn-small btn-success")%>
+                    <%end%>
+                </header>
+            </div>
+            <div class="hero-unit" style="background-image:url(/assets/header.gif);">
+               Hello
+            </div>
+
+            <nav class="navbar">
+                <div class="navbar-inner" style="background-image:url(/assets/menu.gif);border:0px;">
+                    <div class="container">
+                        <ul class="nav">
+                            <li class="<%='active' if params[:controller] == 'main' && params[:action]=='index'%>">
+                                <%= link_to("Home", :controller=>'main', :action=>'index')%>
+                            </li>
+                            <li class="<%='active' if params[:controller] == 'main' && params[:action]=='aboutus'%>">
+                                <%= link_to("About us", :controller=>'main', :action=>'aboutus')%>
+                            </li>
+                            <li class="<%='active' if params[:controller] == 'main' && params[:action]=='contactus'%>">
+                                <%= link_to("Contact", :controller=>'main', :action=>'contactus')%>
+                            </li>
+                            <li class="<%='active' if params[:controller] == 'main' && params[:action]=='services'%>">
+                                <%= link_to("Services" )%>
+                            </li>
+                            <li class="<%='active' if params[:controller] == 'main' && params[:action]=='schools'%>">
+                                <%= link_to("Schools", :controller=>'main', :action=>'schools')%>
+                            </li>
+                            <li class="<%='active' if params[:controller] == 'main' && params[:action]=='revision'%>">
+                                <%= link_to("Revision")%>
+                            </li>
+                            <li class="<%='active' if params[:controller] == 'main' && params[:action]=='uneb'%>">
+                                <%= link_to("UNEB Papers")%>
+                            </li>
+                            <%if !session[:user_id].blank? %>
+                                <li class="<%='active' if params[:controller] == 'user' && params[:action]=='show'%>">
+                                    <%=link_to('My Account', {:controller=>'users',:action=>'show', :id=>session[:user_id]})%>
+                                </li>
+                                <li class="<%='active' if params[:controller] == 'admin' && params[:action]=='index'%>">
+                                    <%=link_to('Main Menu', {:controller=>'admin',:action=>'index'})%>
+                                </li>
+                            <%end%>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="row-fluid">
+                <header class="span3">
+                        <h2>News and Events</h2>
+                </header>
+                <header class="span9">
+                    <div class="hero-unit" style="padding-left:10px;">
+                            <%if !flash[:notice].blank?%>
+                                <div style="border:1px solid black;border-color:#CC0000; font-size:14px;text-align:center;">
+                                <%=flash[:notice]%>
+                                </div>
+                            <%end%>
+                            
+
+                            <%= yield%>   
+                    </div>
+                </header>
+            </div>
+            <footer style="background:#333;color:#666666">
+                Copyright 2013 Becka
+            </footer>
+        </div>
+                    
+            
+    </body>
+</html>

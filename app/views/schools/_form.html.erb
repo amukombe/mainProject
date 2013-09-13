@@ -1,0 +1,40 @@
+<%= form_for(@school) do |f| %>
+  <% if @school.errors.any? %>
+    <div style="border:1px solid black;border-color:#CC0000; font-size:14px;text-align:left;">
+        <% @school.errors.full_messages.each do |msg| %>
+        <%= msg %>, 
+      <% end %>
+    </div>
+  <% end %>
+  <table>
+  <div class="field">
+    <tr><td>
+      <%= f.label :school_name %>
+      <%= f.text_field :schoolname %>
+    </td></tr>
+  </div>
+  <div class="field">
+    <tr><td>
+      <%= f.label :address %>
+      <%= f.text_field :address %>
+    </td></tr>
+  </div>
+  <div class="field">
+    <tr><td>
+      <%= f.label :head_teacher %>
+      <%= f.text_field :headteacher %>
+    </td></tr>
+  </div>
+  <div class="field">
+    <tr><td>
+      <%= f.label :contact %>
+      <%= f.text_field :contact %>
+    </td></tr>
+  </div>
+  <div class="actions">
+    <tr><td>
+      <%= submit_tag 'Create school', :class=>"btn btn-medium btn-success"  %>
+    </td></tr>
+  </div>
+<% end %>
+</table>

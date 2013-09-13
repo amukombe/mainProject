@@ -1,0 +1,26 @@
+<% @page_title = "Schools|show" %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Schoolname:</b>
+  <%= @school.schoolname %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @school.address %>
+</p>
+
+<p>
+  <b>Headteacher:</b>
+  <%= @school.headteacher %>
+</p>
+
+<p>
+  <b>Contact:</b>
+  <%= @school.contact %>
+</p>
+
+
+<%= link_to 'Edit', edit_school_path(@school),  :class=>"btn-link"  %> |
+<%= link_to 'Back', schools_path,  :class=>"btn-link"  %>
