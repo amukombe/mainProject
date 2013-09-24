@@ -1,0 +1,12 @@
+
+<table>
+	<tr><td>
+		<%= @caricullum.caricullumname %>
+	</td></tr>
+	<tr><td>
+		<%= @caricullum.description%>
+	</td></tr>
+</table>
+
+<%= link_to 'Edit', edit_caricullum_path(@caricullum) , :class=>"btn-link" %> |
+<%= link_to 'Back', caricullums_path, :class=>"btn-link" %>

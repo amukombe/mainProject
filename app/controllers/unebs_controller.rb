@@ -28,6 +28,7 @@ class UnebsController < ApplicationController
   # GET /unebs/new.json
   def new
     @uneb = Uneb.new
+    @caricullums=Caricullum.all
     @subjects=Subject.order('subjects.subjectname')
     respond_to do |format|
       format.html # new.html.erb
@@ -39,6 +40,7 @@ class UnebsController < ApplicationController
   def edit
     @uneb = Uneb.find(params[:id])
     @subjects=Subject.all
+    @caricullums=Caricullum.all
   end
   def uploadFile
     post =DataFile.save(params[:upload])
@@ -50,6 +52,7 @@ class UnebsController < ApplicationController
   def create
     @uneb = Uneb.new(params[:uneb])
     @subjects=Subject.all
+    @caricullums=Caricullum.all
     respond_to do |format|
       if @uneb.save
         format.html { redirect_to @uneb, notice: 'Uneb was successfully created.' }

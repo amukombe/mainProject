@@ -6,6 +6,7 @@ layout 'admin'
 
   def index
     @teachers = Teacher.all
+    @school = School.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,6 +18,7 @@ layout 'admin'
   # GET /teachers/1.json
   def show
     @teacher = Teacher.find(params[:id])
+    @school = School.all
 
     respond_to do |format|
       format.html # show.html.erb
@@ -28,6 +30,7 @@ layout 'admin'
   # GET /teachers/new.json
   def new
     @teacher = Teacher.new
+    @school = School.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,12 +41,14 @@ layout 'admin'
   # GET /teachers/1/edit
   def edit
     @teacher = Teacher.find(params[:id])
+    @school = School.all
   end
 
   # POST /teachers
   # POST /teachers.json
   def create
     @teacher = Teacher.new(params[:teacher])
+    @school = School.all
 
     respond_to do |format|
       if @teacher.save
@@ -60,6 +65,7 @@ layout 'admin'
   # PUT /teachers/1.json
   def update
     @teacher = Teacher.find(params[:id])
+    @school = School.all
 
     respond_to do |format|
       if @teacher.update_attributes(params[:teacher])

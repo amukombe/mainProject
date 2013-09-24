@@ -1,5 +1,7 @@
 MainProject::Application.routes.draw do
   
+  resources :caricullums
+
   resources :unebs
 
   resources :notes

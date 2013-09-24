@@ -1,0 +1,30 @@
+<div class="field">
+    <tr><td>
+      <%= label_tag 'userid / student no.' %></td><td>
+      <%= f.text_field :userid %>
+    </td></tr>
+  </div>  
+  <div class="field">
+      <tr><td>
+      <%= f.label :schoolname %></td><td>
+      <%= f.select(:schoolname, @schools.collect {|r| [r.schoolname]}, {:include_blank=>"--- select school ---"}) %>
+      </td></tr>
+    </div>
+    <div class="field">
+    <tr><td>
+      <%= f.label :username %></td><td>
+      <%= f.text_field :username %>
+    </td></tr>
+  </div>
+  <div class="field">
+    <tr><td>
+      <%= f.label :password %></td><td>
+      <%= f.password_field :password %>
+    </td></tr>
+  </div>
+  <div class="field">
+    <tr><td>
+      <%= f.label :password_confirmation, 'Confirm' %></td><td>
+      <%= f.password_field :password_confirmation %>
+    </td></tr>
+  </div>

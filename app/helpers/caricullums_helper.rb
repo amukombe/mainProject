@@ -1,0 +1,2 @@
+module CaricullumsHelper
+end

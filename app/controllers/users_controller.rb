@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
   layout 'admin'
-  before_filter :confirm_logged_in
+  before_filter :confirm_admin, :except=>[:userupdate, :useredit]
+  before_filter :confirm_logged_in, :except=>[:create]
   # GET /users
   # GET /users.json
   def index
     @users = User.all
-
+    @roles=Role.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
@@ -27,6 +28,7 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
+    @roles = Role.order('roles.title ASC')
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,13 +39,14 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @roles=Role.all
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(params[:user])
-
+    @roles=Role.all
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -85,4 +88,22 @@ class UsersController < ApplicationController
   def register
     
   end
+  def userupdate
+    @user = User.find(params[:id])
+    @roles=Role.all
+  end
+  def useredit
+    @user = User.find(params[:id])
+
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        format.html { redirect_to :controller=>'admin',:action=>'index', notice: 'User was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
 end

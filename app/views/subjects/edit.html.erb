@@ -1,7 +1,21 @@
 <% @page_title = "Subject|Edit" %>
 <h3>Editing subject</h3>
-
-<%= render 'form' %>
-
+<%= form_for(@subject) do |f| %>
+  <% if @subject.errors.any? %>
+    <div id="error_explanation" style="border:1px solid black;border-color:#CC0000; font-size:14px;text-align:left;">
+      <% @subject.errors.full_messages.each do |msg| %>
+        <%= msg %>
+      <% end %>
+    </div>
+  <% end %>
+  <table>
+<%= render(:partial=>'form', :locals=>{:f=>f}) %>
+<div class="actions">
+    <tr><td>
+      <%= submit_tag 'Update subject', :class=>"btn btn-medium btn-success"  %>
+    </td></tr>
+  </div>
+<% end %>
+</table>
 <%= link_to 'Show', @subject, :class=>"btn-link"  %> |
 <%= link_to 'Back', subjects_path, :class=>"btn-link"  %>

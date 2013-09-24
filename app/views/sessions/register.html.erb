@@ -1,0 +1,12 @@
+<h3>Activate account</h3>
+<% @page_title = "User|Activate" %>
+<%= form_for(:users, :url=>{:action=>'activate'}) do |f| %> 
+<table>
+<%= render(:partial=>'form', :locals=>{:f=>f}) %>
+<div class="actions">
+    <tr><td>
+      <%= submit_tag "Activate", :class=>"btn btn-medium btn-success" %>
+    </td></tr>
+  </div>
+<% end %>
+</table>

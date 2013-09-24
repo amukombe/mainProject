@@ -1,14 +1,4 @@
-<%= form_for(@student) do |f| %>
-  <% if @student.errors.any? %>
-    <div style="border:1px solid black;border-color:#CC0000; font-size:14px;text-align:left;">      
-      <% @student.errors.full_messages.each do |msg| %>
-        
-        <%= msg %>,
 
-      <% end %>
-    </div>
-  <% end %>
-<table>
   <div class="field">
     <tr><td>
       <%= f.label :firstname %></td><td>
@@ -48,7 +38,7 @@
   <div class="field">
     <tr><td>
       <%= f.label :student_school %></td><td>
-    <%= f.text_field :student_school %>
+    <%= f.select(:student_school, @school.collect{|r| [r.schoolname]}, {:include_blank=>"--- select shool ---"}) %>
     </td></tr>
   </div>
   <div class="field">
@@ -57,10 +47,5 @@
     <%= f.text_field :student_class %>
     </td></tr>
   </div>
-  <div class="actions">
-    <tr><td>
-      <%= submit_tag "Create", :class=>"btn btn-medium btn-success" %>
-    </td></tr>
-  </div>
-<% end %>
-</table>
+   <%= f.hidden_field :role_id, :value=>"Student" %>
+ 

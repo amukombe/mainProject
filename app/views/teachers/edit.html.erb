@@ -1,6 +1,19 @@
 <h3>Editing teacher</h3>
-
-<%= render 'form' %>
-
+<%= form_for(@teacher) do |f| %>
+  <% if @teacher.errors.any? %>
+    <div id="error_explanation" style="border:1px solid black;border-color:#CC0000; font-size:14px;text-align:left;">
+      <% @teacher.errors.full_messages.each do |msg| %><%= msg %>,
+      <% end %>
+    </div>
+  <% end %>
+  <table>
+<%= render(:partial=>'form', :locals=>{:f=>f}) %>
+<div class="actions">
+    <tr><td>
+      <%= submit_tag "update", :class=>"btn btn-medium btn-success" %>
+    </td></tr>
+  </div>  
+<% end %>
+</table>
 <%= link_to 'Show', @teacher, :class=>"btn-link" %> |
 <%= link_to 'Back', teachers_path, :class=>"btn-link" %>

@@ -1,20 +1,20 @@
-<h3>New teacher</h3>
-
-<%= form_for(@teacher) do |f| %>
-  <% if @teacher.errors.any? %>
+<% @page_title = "New caricullum" %>
+<h3>New caricullum</h3>
+<%= form_for(@caricullum) do |f| %>
+  <% if @caricullum.errors.any? %>
     <div id="error_explanation" style="border:1px solid black;border-color:#CC0000; font-size:14px;text-align:left;">
-      <% @teacher.errors.full_messages.each do |msg| %><%= msg %>
+     
+      <% @caricullum.errors.full_messages.each do |msg| %><%= msg %>
       <% end %>
     </div>
   <% end %>
-  <table>
+<table>
 <%= render(:partial=>'form', :locals=>{:f=>f}) %>
 <div class="actions">
     <tr><td>
       <%= submit_tag "Create", :class=>"btn btn-medium btn-success" %>
     </td></tr>
-  </div>  
+  </div>
 <% end %>
 </table>
-
-<%= link_to 'Back', teachers_path, :class=>"btn-link" %>
+<%= link_to 'Back', caricullums_path, :class=>"btn-link" %>

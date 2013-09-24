@@ -1,7 +1,8 @@
 class SubjectsController < ApplicationController
   # GET /subjects
-  # GET /subjects.json
+  # GET /subjects.json  
   layout 'admin'
+  before_filter :confirm_admin, :except=>[:index,:show]
   def index
     @subjects = Subject.all
 
@@ -26,7 +27,7 @@ class SubjectsController < ApplicationController
   # GET /subjects/new.json
   def new
     @subject = Subject.new
-
+    @caricullums = Caricullum.all
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @subject }
@@ -36,13 +37,14 @@ class SubjectsController < ApplicationController
   # GET /subjects/1/edit
   def edit
     @subject = Subject.find(params[:id])
+    @caricullums = Caricullum.all
   end
 
   # POST /subjects
   # POST /subjects.json
   def create
     @subject = Subject.new(params[:subject])
-
+    @caricullums = Caricullum.all
     respond_to do |format|
       if @subject.save
         format.html { redirect_to @subject, notice: 'Subject was successfully created.' }
@@ -58,7 +60,7 @@ class SubjectsController < ApplicationController
   # PUT /subjects/1.json
   def update
     @subject = Subject.find(params[:id])
-
+    @caricullums = Caricullum.all
     respond_to do |format|
       if @subject.update_attributes(params[:subject])
         format.html { redirect_to @subject, notice: 'Subject was successfully updated.' }

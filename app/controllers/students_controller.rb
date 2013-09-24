@@ -5,7 +5,7 @@ class StudentsController < ApplicationController
   before_filter :confirm_logged_in
   def index
     @students = Student.all
-
+    @school = School.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @students }
@@ -16,6 +16,7 @@ class StudentsController < ApplicationController
   # GET /students/1.json
   def show
     @student = Student.find(params[:id])
+    @school = School.all
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,6 +28,7 @@ class StudentsController < ApplicationController
   # GET /students/new.json
   def new
     @student = Student.new
+    @school = School.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,12 +39,14 @@ class StudentsController < ApplicationController
   # GET /students/1/edit
   def edit
     @student = Student.find(params[:id])
+    @school = School.all
   end
 
   # POST /students
   # POST /students.json
   def create
     @student = Student.new(params[:student])
+    @school = School.all
 
     respond_to do |format|
       if @student.save
@@ -59,6 +63,7 @@ class StudentsController < ApplicationController
   # PUT /students/1.json
   def update
     @student = Student.find(params[:id])
+    @school = School.all
 
     respond_to do |format|
       if @student.update_attributes(params[:student])

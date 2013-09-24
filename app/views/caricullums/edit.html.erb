@@ -1,0 +1,22 @@
+<h3>Editing caricullum</h3>
+<% @page_title = "Edit caricullum" %>
+<%= form_for(@caricullum) do |f| %>
+  <% if @caricullum.errors.any? %>
+    <div id="error_explanation" style="border:1px solid black;border-color:#CC0000; font-size:14px;text-align:left;">
+     
+      <% @caricullum.errors.full_messages.each do |msg| %><%= msg %>
+      <% end %>
+    </div>
+  <% end %>
+<table>
+<%= render(:partial=>'form', :locals=>{:f=>f}) %>
+<div class="actions">
+    <tr><td>
+      <%= submit_tag "Update", :class=>"btn btn-medium btn-success" %>
+    </td></tr>
+  </div>
+<% end %>
+</table>
+
+<%= link_to 'Show', @caricullum, :class=>"btn-link" %> |
+<%= link_to 'Back', caricullums_path, :class=>"btn-link" %>

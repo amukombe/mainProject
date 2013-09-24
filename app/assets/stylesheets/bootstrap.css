@@ -228,7 +228,7 @@ body {
   line-height: 20px;
   color: #333333;
   background-color: #ffffff;
-  background-image: url("body1.gif");
+  background-image: url("back2.jpg");
   padding-top: 10px;
 }
 
@@ -6172,4 +6172,14 @@ a.badge:focus {
 .link-tag{
   color:#0099FF;
   font-size: 14px;
+}
+.hero-logo{
+  width:1000px;
+  background-image:url(/assets/banner.png);
+  height: 150px;
+}
+select.date-select{
+  width: auto;
+  border: 1px solid #cccccc;
+    background-color: #ffffff;
 }

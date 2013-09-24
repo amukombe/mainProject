@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130818202724) do
+ActiveRecord::Schema.define(:version => 20130923013115) do
+
+  create_table "admins", :force => true do |t|
+    t.string   "first_name",      :limit => 25
+    t.string   "last_name",       :limit => 50
+    t.string   "username",        :limit => 25
+    t.string   "email",           :limit => 100, :null => false
+    t.string   "hashed_password", :limit => 100
+    t.string   "salt",            :limit => 40
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
+  create_table "caricullums", :force => true do |t|
+    t.string   "caricullumname"
+    t.string   "description"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "notes", :force => true do |t|
     t.string   "title"
@@ -66,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20130818202724) do
     t.string   "student_class"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.string   "role_id"
   end
 
   create_table "subjects", :force => true do |t|
@@ -86,6 +105,7 @@ ActiveRecord::Schema.define(:version => 20130818202724) do
     t.string   "subject"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "role_id"
   end
 
   add_index "teachers", ["school_id"], :name => "index_teachers_on_school_id"
@@ -109,7 +129,7 @@ ActiveRecord::Schema.define(:version => 20130818202724) do
     t.string   "username"
     t.string   "hashed_password"
     t.string   "salt"
-    t.integer  "role_id"
+    t.string   "role_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

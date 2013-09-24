@@ -17,7 +17,7 @@
     <div class="field">
       <tr><td>
       <%= f.label :academic_level %></td><td>
-      <%= f.text_field :academic_level %>
+      <%= f.select(:academic_level, @caricullums.collect {|r| [r.caricullumname]}, {:include_blank=>"--- select level ---"}) %>
       </td></tr>
     </div>
     <div class="field">
@@ -29,7 +29,7 @@
     <div class="field">
       <tr><td>
       <%= f.label :academic_year %></td><td style="width:500px;">
-      <%= f.date_select :academic_year %>
+      <%= f.date_select(:academic_year, :class=>'date-select') %>
     </td></tr>
     </div>
     <div class="actions">

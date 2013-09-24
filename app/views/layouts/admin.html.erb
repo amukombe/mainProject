@@ -23,8 +23,7 @@
                     <%end%>
                 </header>
             </div>
-            <div class="hero-unit" style="background-image:url(/assets/header.gif);">
-                Header
+            <div class="hero-logo">
             </div>
 
             <div class="navbar">
@@ -39,8 +38,8 @@
                             <li><%= link_to("Revision")%></li>
                             <li><%= link_to("UNEB Papers")%></li>
                             <%if !session[:user_id].blank? %>
-                                <li class="<%='active' if params[:controller] == 'users' && params[:action]=='show'%>">
-                                    <%=link_to('My Account', {:controller=>'users',:action=>'show', :id=>session[:user_id]})%>
+                                <li class="<%='active' if params[:controller] == 'users' && params[:action]=='userupdate'%>">
+                                    <%=link_to('Edit Account', {:controller=>'users',:action=>'userupdate', :id=>session[:user_id]})%>
                                 </li>
                                 <li class="<%='active' if params[:controller] == 'sessions' && params[:action]=='menu'%>">
                                     <%=link_to('Main Menu', {:controller=>'admin',:action=>'index'})%>
@@ -54,6 +53,7 @@
                 <header class="span3">
                         <% if !session[:user_id].blank? %>
                         <div class="hero-unit" style="padding:5px;background:#fff;">
+                            <% if session[:role_id]=='Admin' %>
                             <ul class="nav">
                                 <li><%= link_to_unless_current('Manage users', {:controller=>'users', :action=>'index'}, :class=>'link-tag') %></li>
                                 <li><%= link_to_unless_current('Manage schools', {:controller=>'schools', :action=>'index'}, :class=>'link-tag') %></li>
@@ -64,8 +64,20 @@
                                 <li><%=link_to_unless_current('Manage UNEB', {:controller=>'unebs',:action=>"index"}, :class=>'link-tag')%></li>
                                 <li><%=link_to_unless_current('Manage Quiz', {:action=>"#"}, :class=>'link-tag')%></li>
                                 <li><%= link_to_unless_current('Manage roles', {:controller=>'roles', :action=>'index'}, :class=>'link-tag') %></li>
+                                <li><%= link_to_unless_current('Manage caricullum', {:controller=>'caricullums', :action=>'index'}, :class=>'link-tag') %></li>
                             </ul>
-                        </div>
+                            <% else if session[:role_id]=='Student' %>
+                            <ul class="nav">
+                                <li><%= link_to_unless_current('Available subjects', {:controller=>'subjects', :action=>'index'}, :class=>'link-tag') %></li>
+                                <li><%= link_to_unless_current('Blog', {:controller=>'blogs', :action=>'index'}, :class=>'link-tag') %></li>
+                                <li><%= link_to_unless_current('Chat room', {:controller=>'chats', :action=>'index'}, :class=>'link-tag') %></li>
+                                
+                                <li><%= link_to_unless_current('Send mail', {:controller=>'mails', :action=>'index'}, :class=>'link-tag') %></li>
+                                <li><%= link_to_unless_current('View notes', {:controller=>'notes', :action=>'index'}, :class=>'link-tag') %></li>
+
+                                </ul>
+                            <% end end %>
+                        </div>                    
                         <%end%>
                 </header>
                 <header class="span9">
