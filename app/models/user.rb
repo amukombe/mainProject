@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 	require 'digest/sha2'
-	
+	has_many :articles
 	EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9._]+\.[A-Z]{2,4}$/i
 
 	validates :username, :presence => true , :uniqueness => true

@@ -14,9 +14,9 @@
     <td><%= teacher.lastname %></td>
     <td><%= teacher.subject %></td>
     <td>
-        <%= link_to 'Show', teacher , :class=>"btn-link" %> |
-        <%= link_to 'Edit', edit_teacher_path(teacher), :class=>"btn-link"  %> |
-        <%= link_to 'Destroy', teacher, confirm: 'Are you sure?', method: :delete, :class=>"btn-link"  %>
+        <%= link_to 'Show', {:action=>'show', :id=>teacher.id} , :class=>"btn-link" %> |
+        <%= link_to 'Edit', {:action=>'edit', :id=>teacher.id}, :class=>"btn-link"  %> |
+        <%= link_to 'Destroy', {:action=>'delete', :id=>teacher.id}, confirm: 'Are you sure?', method: :delete, :class=>"btn-link"  %>
     </td>
   </tr>
 <% end %>

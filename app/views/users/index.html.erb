@@ -15,8 +15,8 @@
     <td><%= user.lastname %></td>
     <td><%= user.email %></td>
     <td>
-      <%= link_to 'Show', user, :class=>"btn-link" %> | 
-      <%= link_to 'Edit', edit_user_path(user) , :class=>"btn-link" %> | 
+      <%= link_to 'Show', {:action=>'show', :id=>user.id}, :class=>"btn-link" %> | 
+      <%= link_to 'Edit', {:action=>'edit', :id=>user.id} , :class=>"btn-link" %> | 
       <%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete , :class=>"btn-link" %>
     </td>
   </tr>

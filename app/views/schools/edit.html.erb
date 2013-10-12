@@ -3,5 +3,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @school,  :class=>"btn-link"  %> |
+<%= link_to 'Show', {:action=>'show', :id=>@school.id},  :class=>"btn-link"  %> |
 <%= link_to 'Back', schools_path,  :class=>"btn-link"  %>

@@ -31,5 +31,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_uneb_path(@uneb) %> |
-<%= link_to 'Back', unebs_path %>
+<%= link_to 'Edit', {:action=>'edit', :id=>@uneb.id} , :class=>"btn-link" %> |
+<%= link_to 'Back', unebs_path, :class=>"btn-link"  %>

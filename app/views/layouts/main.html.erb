@@ -15,11 +15,12 @@
             <div class="row-fluid" style="color:#fff;">
                 <header class="span6">Welcome to the Soma system</header>
                 <header class="span6" style="text-align:right;">
-                    <%if !session[:user_id].blank? %>
+                    <%if !session[:user_id].blank? || !session[:account_id].blank? %>
                         Hello: <%= session[:firstname]%> <%= session[:lastname]%>
                          <%= link_to 'Logout', {:controller=>'sessions', :action=>'logout'}, :class=>"btn btn-small btn-success" %>
+                    
                     <%else%>
-                        <%= link_to("Login",{:controller=>'sessions',:action=>'login'}, :class=>"btn btn-small btn-success")%> | <%= link_to("Activate Account",{:controller=>'sessions',:action=>'register'}, :class=>"btn btn-small btn-success")%>
+                        <%= link_to("Login",{:controller=>'sessions',:action=>'login'}, :class=>"btn btn-small btn-success")%> | <%= link_to("Activate Account",{:controller=>'accounts',:action=>'new'}, :class=>"btn btn-small btn-success")%>
                     <%end%>
                 </header>
             </div>
@@ -52,7 +53,7 @@
                             <li class="<%='active' if params[:controller] == 'main' && params[:action]=='uneb'%>">
                                 <%= link_to("UNEB Papers")%>
                             </li>
-                            <%if !session[:user_id].blank? %>
+                            <%if !session[:user_id].blank? || !session[:account_id].blank? %>
                                 <li class="<%='active' if params[:controller] == 'user' && params[:action]=='show'%>">
                                     <%=link_to('My Account', {:controller=>'users',:action=>'show', :id=>session[:user_id]})%>
                                 </li>

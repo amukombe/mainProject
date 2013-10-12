@@ -8,14 +8,14 @@
     <th>Action</th>
   </tr>
 
-<% @unebs.each do |uneb| %>
+<% @uneb.each do |uneb| %>
   <tr>
     <td><%= uneb.academic_year %></td>
     <td><%= uneb.subject %></td>
     <td><%= uneb.academic_level %></td>
-    <td><%= link_to 'Show', uneb , :class=>"btn-link"%> |
-        <%= link_to('Edit', {:action=>'edit', :id=>uneb.id}, :class=>"btn-link") %> |
-        <%= link_to 'Destroy', uneb, confirm: 'Are you sure?', method: :delete, :class=>"btn-link" %>
+    <td><%= link_to 'Show', {:action=>'show', :id=>uneb.id} , :class=>"btn-link"%> |
+        <%= link_to('Edit', {:action=>'edit', :id => uneb.id}, :class=>"btn-link") %> |
+        <%= link_to 'Destroy',{:action=>'delete', :id => uneb.id},:class=>"btn-link" %>
     </td>
   </tr>
 <% end %>

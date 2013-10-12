@@ -6183,3 +6183,8 @@ select.date-select{
   border: 1px solid #cccccc;
     background-color: #ffffff;
 }
+.login-page{
+  width: 500px;
+  height: auto;
+  border: 2px solid #ccc;
+}

@@ -19,5 +19,5 @@
   </div>
 <% end %>
 </table>
-<%= link_to 'Show', @student , :class=>"btn-link" %> |
+<%= link_to 'Show', {:action=>'show', :id=>@student.id} , :class=>"btn-link" %> |
 <%= link_to 'Back', students_path , :class=>"btn-link" %>

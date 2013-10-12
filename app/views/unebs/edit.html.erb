@@ -1,6 +1,6 @@
 <h3>Editing uneb</h3>
 
-<%= form_for(:uneb, :url=>{:action=>'update', :id=>@uneb.id}, :html=>{:multipart=>true}) do |f| %>
+<%= form_for(@uneb, :html=>{:multipart=>true}) do |f| %>
 <%= render(:partial=>'form', :locals=>{:f=>f}) %>
 
 <% end %>

@@ -5,14 +5,11 @@ class UnebsController < ApplicationController
   before_filter :confirm_logged_in
   
   def index
-    @unebs = Uneb.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @unebs }
-    end
+    @uneb = Uneb.all
   end
-
+  def list
+    
+  end
   # GET /unebs/1
   # GET /unebs/1.json
   def show
@@ -69,9 +66,9 @@ class UnebsController < ApplicationController
   def update
     @uneb = Uneb.find(params[:id])
     @subjects=Subject.all
-    if @uneb.update_attributes(params[:unebs])
+    if @uneb.update_attributes(params[:uneb])
       flash[:notice]="paper successfully updated"
-      redirect_to :action=>'index'
+      redirect_to(:action=>'index')
     else
       flash[:notice]="Failed to update"
       render :action=>'edit'
@@ -80,13 +77,13 @@ class UnebsController < ApplicationController
 
   # DELETE /unebs/1
   # DELETE /unebs/1.json
-  def destroy
+  def delete
     @uneb = Uneb.find(params[:id])
-    @uneb.destroy
-
-    respond_to do |format|
-      format.html { redirect_to unebs_url }
-      format.json { head :no_content }
-    end
+  end
+  
+  def destroy
+    Uneb.find(params[:id]).destroy
+    flash[:notice] = "Item successfully deleted"
+    redirect_to(:action=>'index')
   end
 end

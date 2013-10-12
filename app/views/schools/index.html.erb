@@ -12,9 +12,9 @@
   <tr>
     <td><%= school.schoolname %></td>
     <td><%= school.address %></td>
-    <td><%= link_to 'Show', school,  :class=>"btn-link"  %> |
-        <%= link_to 'Edit', edit_school_path(school),  :class=>"btn-link"  %> |
-        <%= link_to 'Destroy', school, confirm: 'Are you sure?', method: :delete,  :class=>"btn-link"  %></td>
+    <td><%= link_to 'Show', {:action=>'show', :id=>school.id},  :class=>"btn-link"  %> |
+        <%= link_to 'Edit', {:action=>'edit', :id=>school.id},  :class=>"btn-link"  %> |
+        <%= link_to 'Destroy', {:action=>'delete', :id=>school.id}, :class=>"btn-link"  %></td>
   </tr>
 <% end %>
 </table>

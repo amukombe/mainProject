@@ -1,0 +1,42 @@
+<% @page_title='User|Login'%>
+<% if flash[:alert] %>
+	<%= flash[:alert] %>
+<% end %>
+
+<%= form_tag(:controller=>'sessions',:action=>'create') do %>
+			
+		<table align="center" style="margin-bottom:100px;">
+		<h4 style="text-align:center">Please Login</h4>
+		<tr>
+			<td>
+				<div>
+				<label for="username" >Username</label>
+				</div>
+			</td>
+			<td>
+				<div>
+				<%= text_field_tag :username %>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div>
+				<label for="password" >Password</label>
+				</div>
+			</td>
+			<td>
+				<div>
+				<%= password_field_tag :password %>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div>
+			<%= submit_tag "Login", :class=>"btn btn-medium btn-info" %>
+			</div>
+			</td>
+		</tr>
+		</table>	
+<% end %>

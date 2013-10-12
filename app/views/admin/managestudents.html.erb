@@ -1,0 +1,15 @@
+<% @page_title='Manage|students' %>
+<table style="margin-left:25%; text-align:center;font-size:16px;">
+	<tr>
+		<td style="padding-right:100px;">
+			<%= link_to("Active students", :controller=>'accounts',:action=>'index')%>
+		<br />
+			<%= image_tag("viewuser.jpeg") %>
+		</td>
+		<td>
+			<%= link_to("Registered students", :controller=>'students',:action=>'index')%>
+		<br />
+			<%= image_tag("edituser.jpeg") %>
+		</td>
+	</tr>
+</table>

@@ -1,20 +1,44 @@
 MainProject::Application.routes.draw do
   
-  resources :caricullums
+  get "access/menu"
 
-  resources :unebs
+  get "access/login"
 
-  resources :notes
+  get "accounts/index"
 
-  resources :students
+  get "accounts/new"
+
+  get "accounts/edit"
+
+  get "articles/index"
+
+  get "articles/show"
+
+  get "articles/create"
+
+  get "articles/edit"
+
+  get "articles/update"
+
+  get "articles/destroy"
+
+  get "articles/admin"
+
+  #resources :caricullums
+
+  #resources :unebs
+
+  #resources :notes
+
+  #resources :students
 
   #resources :subscribers
 
   #resources :students
 
-  resources :teachers
+  #resources :teachers
 
-  resources :roles
+  #resources :roles
 
   #get "sessions/new"
   
@@ -36,11 +60,11 @@ MainProject::Application.routes.draw do
 
   #get "main/schools"
 
-  resources :subjects
+  #resources :subjects
 
-  resources :schools
+  #resources :schools
 
-  resources :users
+  #resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

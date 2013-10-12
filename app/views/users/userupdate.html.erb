@@ -52,12 +52,7 @@
       <%= f.password_field :password_confirmation %>
     </td></tr>
   </div>
-  <div class="field">
-    <tr><td>
-      <%= f.label :role %></td><td>
-      <%= f.select(:role_id, @roles.collect {|r| [r.title]}, {:include_blank=>"--- select role ---"}) %>
-    </td></tr>
-  </div>  
+  <% f.hidden_field(:role_id,:value=>session[:role_id])%>
 <div class="actions">
     <tr><td>
       <%= submit_tag "update", :class=>"btn btn-medium btn-success" %>

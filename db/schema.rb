@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130923013115) do
+ActiveRecord::Schema.define(:version => 20130926034043) do
+
+  create_table "accounts", :force => true do |t|
+    t.string   "student_no"
+    t.string   "school_name"
+    t.string   "username"
+    t.string   "hashed_password"
+    t.string   "salt"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "role_id"
+  end
 
   create_table "admins", :force => true do |t|
     t.string   "first_name",      :limit => 25
@@ -24,11 +35,29 @@ ActiveRecord::Schema.define(:version => 20130923013115) do
     t.datetime "updated_at",                     :null => false
   end
 
+  create_table "articles", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "synopsis",     :limit => 1000
+    t.text     "body",         :limit => 2000
+    t.boolean  "published",                    :default => false
+    t.datetime "published_at"
+    t.integer  "category_id",                  :default => 1
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
+  end
+
   create_table "caricullums", :force => true do |t|
     t.string   "caricullumname"
     t.string   "description"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "notes", :force => true do |t|

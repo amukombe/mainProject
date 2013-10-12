@@ -1,0 +1,20 @@
+<h3>Activate account</h3>
+<% @page_title = "Account Activation" %>
+<%= form_for(:accounts, :url=>{:action=>'create'}) do |f| %> 
+<% if @accounts.errors.any? %>
+    <div id="error_explanation" style="border:1px solid black;border-color:#CC0000; font-size:14px;text-align:left;">     
+      <% @accounts.errors.full_messages.each do |msg| %>
+        <%= msg %>,
+      <% end %>
+      
+    </div>
+  <% end %>
+<table>
+<%= render(:partial=>'form', :locals=>{:f=>f}) %>
+<div class="actions">
+    <tr><td>
+      <%= submit_tag "Activate", :class=>"btn btn-medium btn-success" %>
+    </td></tr>
+  </div>
+<% end %>
+</table>

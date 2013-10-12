@@ -15,20 +15,14 @@
             <div class="row-fluid" style="color:#fff;">
                 <header class="span6">Welcome to the Soma system</header>
                 <header class="span6" style="text-align:right;">
-                   <%if !session[:user_id].blank? %>                        
-                        Hello <%= session[:firstname]%> <%= session[:lastname]%>
-                         <%= link_to 'Logout', {:controller=>'sessions', :action=>'logout'}, :class=>"btn btn-small btn-success" %>
-                    <%else%>
-                        <%= link_to("Login",{:controller=>'sessions',:action=>'login'}, :class=>"btn btn-small btn-success")%>
-                    <%end%>
+                    
                 </header>
             </div>
-            <div class="hero-unit" style="background:#ccc;">
-                Header
+            <div class="hero-logo">
             </div>
 
             <div class="navbar">
-                <div class="navbar-inner" style="background:#333;">
+                <div class="navbar-inner" style="background-image:url(/assets/menu.gif);border:0px;">
                     <div class="container">
                         <ul class="nav">
                             <li class="nav"><%= link_to("Home", :controller=>'main', :action=>'index')%></li>
@@ -38,9 +32,12 @@
                             <li><%= link_to("Schools", :controller=>'main', :action=>'schools')%></li>
                             <li><%= link_to("Revision")%></li>
                             <li><%= link_to("UNEB Papers")%></li>
-                            <%if !session[:user_id].blank? %>
-                                <li><%=link_to('My Account', {:controller=>'users',:action=>'show', :id=>session[:user_id]})%> |</li>
-                                <li><%=link_to('Main Manu', {:controller=>'admin',:action=>'index'})%>
+                            <%if !session[:user_id].blank? || !session[:account_id].blank? %>
+                                <li class="<%='active' if params[:controller] == 'users' && params[:action]=='userupdate'%>">
+                                    <%=link_to('Edit Account', {:controller=>'users',:action=>'userupdate', :id=>session[:user_id]})%>
+                                </li>
+                                <li class="<%='active' if params[:controller] == 'sessions' && params[:action]=='menu'%>">
+                                    <%=link_to('Main Menu', {:controller=>'admin',:action=>'index'})%>
                                 </li>
                             <%end%>
                         </ul>
@@ -48,21 +45,17 @@
                 </div>
             </div>
             <div class="row-fluid">
-                <header class="span3">
-                        <div class="hero-unit" style="padding:5px;">
-                            News
-                        </div>
-                </header>
-                <header class="span9">
-                    <div class="hero-unit" style="padding-left:10px;">
+                <header class="span12">
+                    <div class="hero-unit" style="padding-left:200px;">
+                        <div class="login-page">
                             <%if !flash[:notice].blank?%>
-                                <div style="border:1px solid black;border-color:#CC0000; font-size:14px;text-align:center;">
+                                <div style="font-size:14px;text-align:center; color:#CC0000;">
                                 <%=flash[:notice]%>
                                 </div>
                             <%end%>
                             
-
-                            <%= yield%>   
+                            <%= yield%>  
+                        </div> 
                     </div>
                 </header>
             </div>

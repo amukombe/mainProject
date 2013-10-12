@@ -40,5 +40,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_teacher_path(@teacher), :class=>"btn-link" %> |
+<%= link_to 'Edit', {:action=>'edit', :id=>@teacher.id}, :class=>"btn-link" %> |
 <%= link_to 'Back', teachers_path , :class=>"btn-link" %>

@@ -12,5 +12,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_subject_path(@subject),:class=>"btn-link" %> |
-<%= link_to 'Back', subjects_path,:class=>"btn-link" %>
+<%= link_to 'Edit', {:action=>'edit', :id=>@subject.id},:class=>"btn-link" %> |
+<%= link_to 'Back', {:action=>'index'},:class=>"btn-link" %>

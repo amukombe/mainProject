@@ -2,6 +2,7 @@ class CaricullumsController < ApplicationController
   # GET /caricullums
   # GET /caricullums.json
   layout 'admin'
+  
   def index
     @caricullums = Caricullum.all
 
